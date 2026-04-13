@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/inventory")
-@CrossOrigin(origins = "*")
 public class ItemController {
 
     private final ItemService service;
@@ -32,4 +31,9 @@ public class ItemController {
 
         return service.getLowStockItems(restaurantId);
     }
-}
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteItem(@PathVariable Long id) {
+        service.deleteItem(id);
+    }
+}

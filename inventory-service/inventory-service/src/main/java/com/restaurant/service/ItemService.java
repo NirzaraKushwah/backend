@@ -46,4 +46,8 @@ public class ItemService {
                 .toList();
     }
 
+    public void deleteItem(Long id) {
+        repo.deleteById(id);
+    }
+
 }

@@ -16,7 +16,11 @@ public class Restaurant {
 
     private String location;
 
-    private Long managerId;
+    private String cuisineType;
+
+    private String contactNumber;
+
+    private String status; // Active or Inactive
 
     public Long getId() {
         return id;
@@ -42,11 +46,27 @@ public class Restaurant {
         this.location = location;
     }
 
-    public Long getManagerId() {
-        return managerId;
+    public String getCuisineType() {
+        return cuisineType;
     }
 
-    public void setManagerId(Long managerId) {
-        this.managerId = managerId;
+    public void setCuisineType(String cuisineType) {
+        this.cuisineType = cuisineType;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

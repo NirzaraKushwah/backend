@@ -24,4 +24,24 @@ public class RestaurantService {
         return repository.findAll();
     }
 
+    public Restaurant getRestaurantById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public Restaurant updateRestaurant(Long id, Restaurant updated) {
+        Restaurant existing = repository.findById(id).orElse(null);
+        if (existing != null) {
+            existing.setName(updated.getName());
+            existing.setLocation(updated.getLocation());
+            existing.setCuisineType(updated.getCuisineType());
+            existing.setContactNumber(updated.getContactNumber());
+            existing.setStatus(updated.getStatus());
+            return repository.save(existing);
+        }
+        return null;
+    }
+
+    public void deleteRestaurant(Long id) {
+        repository.deleteById(id);
+    }
 }

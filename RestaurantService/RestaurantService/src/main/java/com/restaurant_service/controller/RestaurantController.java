@@ -12,7 +12,6 @@ import com.restaurant_service.service.RestaurantService;
 
 @RestController
 @RequestMapping("/restaurants")
-@CrossOrigin("*")
 public class RestaurantController {
 
     @Autowired
@@ -26,5 +25,20 @@ public class RestaurantController {
     @GetMapping("/all")
     public List<Restaurant> getAllRestaurants(){
         return service.getAllRestaurants();
+    }
+
+    @GetMapping("/{id}")
+    public Restaurant getRestaurant(@PathVariable Long id) {
+        return service.getRestaurantById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public Restaurant updateRestaurant(@PathVariable Long id, @RequestBody Restaurant restaurant) {
+        return service.updateRestaurant(id, restaurant);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteRestaurant(@PathVariable Long id) {
+        service.deleteRestaurant(id);
     }
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "item")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,11 +17,13 @@ public class InventoryItem {
 
     private Long restaurantId;
 
+    @Column(name = "name")
     private String itemName;
 
     private int quantity;
 
     private int threshold;
 
-    private String unit;
+    @Column(name = "category")
+    private String category;
 }
